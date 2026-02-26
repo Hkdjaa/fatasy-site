@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Obsidian</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <div class="logo">OBSIDIAN</div>
+    <div>
+        <a href="/">Home</a>
+        <a href="#heroes">Heroes</a>
+        <a href="#realms">Realms</a>
+        <a href="#magic">Magic</a>
+        <a href="/contact">Contact</a>
+    </div>
+</nav>
+
+<section id="heroes" class="section">
+    <h1>Meet the Heroes</h1>
+    <p>Obsidian is alive with legendary heroes inspired by the worlds you love:  
+    Harry Potter, Throne of Glass, ACOTAR, Crescent City, Caraval, Fourth Wing…</p>
+    <div class="flex-wrap">
+        <div class="card" onclick="openModal('hero1')">Elara, Dawn Mage</div>
+        <div class="card" onclick="openModal('hero2')">Kael, Shadow Warrior</div>
+        <div class="card" onclick="openModal('hero3')">Lyra, Sky Thief</div>
+        <div class="card" onclick="openModal('hero4')">Selene, Moon Seer</div>
+        <div class="card" onclick="openModal('hero5')">Riven, Rogue Assassin</div>
+    </div>
+</section>
+
+<div id="hero1" class="modal">
+    <div class="modal-content">
+        <p>Elara wields the ancient light, fighting dark forces much like Celaena Sardothien and ACOTAR’s mages.</p>
+        <div class="close-btn" onclick="closeModal('hero1')">Close</div>
+    </div>
+</div>
+<div id="hero2" class="modal">
+    <div class="modal-content">
+        <p>Kael moves in shadows, mastering stealth and cunning, echoing Caraval’s daring games and Fourth Wing’s sky battles.</p>
+        <div class="close-btn" onclick="closeModal('hero2')">Close</div>
+    </div>
+</div>
+<div id="hero3" class="modal">
+    <div class="modal-content">
+        <p>Lyra is a thief of secrets, elusive and clever, inspired by Crescent City’s hidden powers.</p>
+        <div class="close-btn" onclick="closeModal('hero3')">Close</div>
+    </div>
+</div>
+<div id="hero4" class="modal">
+    <div class="modal-content">
+        <p>Selene sees the threads of fate and prophecy, reminiscent of ACOTAR’s visionaries.</p>
+        <div class="close-btn" onclick="closeModal('hero4')">Close</div>
+    </div>
+</div>
+<div id="hero5" class="modal">
+    <div class="modal-content">
+        <p>Riven strikes from the shadows, blending the thrill of Fourth Wing’s aerial combat and Caraval’s cunning twists.</p>
+        <div class="close-btn" onclick="closeModal('hero5')">Close</div>
+    </div>
+</div>
+
+<section id="realms" class="section" style="background: linear-gradient(to right, #1e0a38, #000000, #1e0a38);">
+    <h2>The Realms</h2>
+    <p>From enchanted forests to towering mountains, every realm hides secrets, treasures, and danger.  
+    Explore places reminiscent of Hogwarts’ magical halls, ACOTAR’s courts, and the perilous skies of Fourth Wing.</p>
+    <div class="flex-wrap">
+        <div class="card" onclick="openModal('realm1')">Whispering Woods</div>
+        <div class="card" onclick="openModal('realm2')">Shadow Peaks</div>
+        <div class="card" onclick="openModal('realm3')">Celestial Lake</div>
+        <div class="card" onclick="openModal('realm4')">Dawnspire Castle</div>
+    </div>
+</section>
+
+<div id="realm1" class="modal">
+    <div class="modal-content">
+        <p>The Whispering Woods are alive, trees murmuring forgotten spells and lost prophecies.</p>
+        <div class="close-btn" onclick="closeModal('realm1')">Close</div>
+    </div>
+</div>
+<div id="realm2" class="modal">
+    <div class="modal-content">
+        <p>Shadow Peaks challenge even the bravest adventurers, shrouded in magic and mystery.</p>
+        <div class="close-btn" onclick="closeModal('realm2')">Close</div>
+    </div>
+</div>
+<div id="realm3" class="modal">
+    <div class="modal-content">
+        <p>Celestial Lake reflects the stars and holds secrets of ancient wizards and magical beasts.</p>
+        <div class="close-btn" onclick="closeModal('realm3')">Close</div>
+    </div>
+</div>
+<div id="realm4" class="modal">
+    <div class="modal-content">
+        <p>Dawnspire Castle rises above the clouds, a place of hero gatherings and epic quests.</p>
+        <div class="close-btn" onclick="closeModal('realm4')">Close</div>
+    </div>
+</div>
+
+<section id="magic" class="section">
+    <h2>Magical Artifacts</h2>
+    <p>Artifacts of immense power are scattered across the realms. Click to unveil their secrets.</p>
+    <div class="flex-wrap">
+        <div class="card" onclick="openModal('artifact1')">Wand of Shadows</div>
+        <div class="card" onclick="openModal('artifact2')">Cloak of Whispers</div>
+        <div class="card" onclick="openModal('artifact3')">Amulet of Fate</div>
+        <div class="card" onclick="openModal('artifact4')">Ring of Echoes</div>
+    </div>
+</section>
+
+<div id="artifact4" class="modal">
+    <div class="modal-content">
+        <p>The Ring of Echoes allows the wearer to hear whispers of the past and future, connecting realms and heroes.</p>
+        <div class="close-btn" onclick="closeModal('artifact4')">Close</div>
+    </div>
+</div>
+
+<a href="/" class="glow" style="margin-top:2rem; display:block; text-align:center;">← Back to Home</a>
+
+</body>
+</html>
