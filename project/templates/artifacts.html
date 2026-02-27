@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section">
+  <h1>Relics Vault</h1>
+  <p class="lead">Exhibits of objects that bend fate and cost blood.</p>
+  <div class="flex-wrap artifacts-grid">
+    <div class="card relic-card" data-origin="Forged under a winter moon" data-power="Channels shadow into silk" data-cost="Consumes memory" data-wielders="Unknown">Wand of Shadows</div>
+    <div class="card relic-card" data-origin="Sewn from whispered promises" data-power="Bends attention" data-cost="A secret untold" data-wielders="Many thieves">Cloak of Whispers</div>
+    <div class="card relic-card" data-origin="Carved from a fallen star" data-power="Reads destiny threads" data-cost="Fainting of the heart" data-wielders="Seers" >Amulet of Fate</div>
+  </div>
+
+  <div id="relic-modal" class="modal">
+    <div class="modal-content">
+      <h3 id="relic-title"></h3>
+      <p id="relic-origin"></p>
+      <ul id="relic-meta"></ul>
+      <div class="close-btn" onclick="closeModal('relic-modal')">Close</div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

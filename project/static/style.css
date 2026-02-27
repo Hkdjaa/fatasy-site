@@ -8,6 +8,17 @@ body {
     cursor: default;
 }
 
+/* Ensure sections and components are readable on a black background */
+.section { color: #e6ddff; }
+.section h1, .section h2, .section h3, .section p, .section li { color: #e6ddff; }
+.card, .modal-content { color: #efe8ff; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); }
+.section.dark .prophecy-widget { background: linear-gradient(180deg, rgba(10,6,12,0.6), rgba(20,8,30,0.6)); color:#efe8ff; }
+.lead { color:#dcd0ff; }
+
+/* Ensure links in nav remain visible on dark background */
+nav a { color: #e9dfff; }
+nav a:hover { color: #fff; }
+
 /* === NAV === */
 nav {
     position: fixed;
@@ -73,3 +84,93 @@ img { border-radius:1.5rem; box-shadow:0 10px 25px rgba(0,0,0,0.4); max-width:10
     animation: fade 0.5s linear forwards;
 }
 @keyframes fade { 0%{opacity:1;} 100%{opacity:0; transform:scale(2);} }
+
+/* === HERO & PARTICLES === */
+.hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.hero-inner { position:relative; z-index:30; text-align:center; padding:6rem 2rem; }
+.hero-title { font-size:6rem; letter-spacing:6px; background: linear-gradient(90deg,#7c3aed,#f472b6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 8px 40px rgba(124,58,237,0.18); transform:translateY(-10px); animation: floatTitle 6s ease-in-out infinite; }
+.hero-sub { margin-top:1rem; color:#d6c9e9; font-size:1.25rem; opacity:0.95; max-width:900px; }
+.hero-cta { margin-top:2rem; display:flex; gap:1rem; justify-content:center; }
+.portal { background:linear-gradient(90deg,#6d28d9,#ec4899); padding:1rem 2.5rem; border-radius:2rem; box-shadow:0 12px 60px rgba(124,58,237,0.2); }
+.portal.large { padding:1.25rem 3rem; font-size:1.1rem; }
+.ghost { background:transparent; border:1px solid rgba(255,255,255,0.06); }
+
+@keyframes floatTitle { 0%{transform:translateY(-6px);}50%{transform:translateY(6px);}100%{transform:translateY(-6px);} }
+
+/* Particle canvas / wrap */
+#particle-wrap { position:absolute; inset:0; z-index:10; pointer-events:none; }
+.particle { position:absolute; width:8px; height:8px; background:radial-gradient(circle,#ffd6f6,#7c3aed); border-radius:50%; opacity:0.9; filter:blur(1px); }
+
+/* Realm cards hover glow */
+.realm-card, .location-card { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+.realm-card:hover, .location-card:hover { transform:translateY(-12px) rotate(-1deg) scale(1.04); box-shadow:0 30px 80px rgba(124,58,237,0.18), 0 2px 6px rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.04); }
+
+/* Quiz cards */
+.quiz-section .card { width:220px; padding:1.5rem 1rem; cursor:pointer; text-align:center; }
+
+/* Scroll indicator */
+#scroll-indicator { position:absolute; bottom:36px; left:50%; transform:translateX(-50%); z-index:40; display:flex; gap:6px; flex-direction:column; align-items:center; }
+#scroll-indicator .arrow { width:18px; height:18px; border-bottom:2px solid rgba(255,255,255,0.6); border-right:2px solid rgba(255,255,255,0.6); transform:rotate(45deg); animation: scrollAnim 1.8s infinite; opacity:0.9; }
+#scroll-indicator .arrow:nth-child(2){ animation-delay:0.2s; }
+#scroll-indicator .arrow:nth-child(3){ animation-delay:0.4s; }
+@keyframes scrollAnim { 0%{opacity:0; transform:translateY(-6px) rotate(45deg);}50%{opacity:1; transform:translateY(0) rotate(45deg);}100%{opacity:0; transform:translateY(6px) rotate(45deg);} }
+
+/* Section transitions */
+.section { transition: opacity 0.8s ease, transform 0.8s ease; }
+.section.revealed { opacity:1; transform:none; }
+.section.hidden { opacity:0; transform:translateY(20px); }
+
+/* Portal CTA section */
+.portal-section { background: linear-gradient(180deg, rgba(124,58,237,0.06), rgba(0,0,0,0.6)); }
+
+/* small screens */
+@media(max-width:768px){ .hero-title{font-size:3rem;} .quiz-section .card{width:100%;} .hero-inner{padding:3rem 1rem;} }
+
+/* === Global butterflies cursor === */
+#butterfly-wrap { position:fixed; left:0; top:0; width:100%; height:100%; pointer-events:none; z-index:9999; }
+.butterfly { position:absolute; width:10px; height:10px; border-radius:50%; opacity:0.95; transform-origin:center; filter:drop-shadow(0 8px 20px rgba(0,0,0,0.6)); animation: floaty 4s ease-in-out infinite; mix-blend-mode:screen; }
+@keyframes floaty { 0%{transform:translateY(0) rotate(0);}50%{transform:translateY(-6px) rotate(6deg);}100%{transform:translateY(0) rotate(0);} }
+
+/* === Sections and components === */
+.lead { color:#d0c6e8; max-width:900px; margin:0 auto 1rem; }
+.lore-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+.lore-card { background:linear-gradient(180deg, rgba(18,6,28,0.6), rgba(6,0,12,0.6)); padding:1.25rem; border-radius:1rem; }
+.timeline-wrap{ max-width:900px; margin:1rem auto; }
+.timeline-item{ padding:0.75rem 1rem; margin:0.5rem 0; background:rgba(255,255,255,0.02); border-left:3px solid rgba(147,51,234,0.2); cursor:pointer; }
+.timeline-item .secret{ display:none; margin-top:0.5rem; color:#cbbbe6; }
+.timeline-item.open .secret{ display:block; }
+
+.manuscript { font-family: Georgia, 'Times New Roman', serif; background:linear-gradient(180deg,#0b0610,#13061a); color:#e7dff6; padding:1.5rem; border-radius:1rem; }
+.reveal-secret { margin-top:1rem; }
+
+/* realms, artifacts */
+.realm-card, .relic-card { min-width:220px; padding:1.25rem; text-align:center; transition:transform 0.4s, box-shadow 0.4s; }
+.realm-card:hover, .relic-card:hover { transform:translateY(-14px) scale(1.03); box-shadow:0 40px 100px rgba(0,0,0,0.6); }
+
+/* flip cards for characters */
+.flip-card { perspective:1000px; width:220px; height:180px; position:relative; }
+.flip-card .card-front, .flip-card .card-back{ position:absolute; inset:0; backface-visibility:hidden; display:flex; align-items:center; justify-content:center; border-radius:1rem; }
+.flip-card .card-front{ background:linear-gradient(90deg,#1f0530,#2a0b3a); }
+.flip-card .card-back{ background:linear-gradient(90deg,#3a0738,#1b1022); transform:rotateY(180deg); color:#f3e9ff; padding:1rem; }
+.flip-card:hover .card-front{ transform:rotateY(180deg); }
+.flip-card:hover .card-back{ transform:rotateY(0deg); }
+
+/* gallery */
+.gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+.gallery-item{ height:180px; display:flex; align-items:flex-end; padding:1rem; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.6)); }
+.gallery-item:hover{ transform:scale(1.03); box-shadow:0 30px 80px rgba(0,0,0,0.6); }
+
+/* prophecy crystal */
+.crystal-wrap{ display:flex; gap:2rem; align-items:center; justify-content:center; }
+.crystal{ width:160px; height:160px; border-radius:50%; background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), rgba(124,58,237,0.08)); box-shadow:0 12px 60px rgba(124,58,237,0.15) inset, 0 40px 100px rgba(0,0,0,0.6); }
+.prophecy-card{ padding:1rem; }
+
+/* contact runes */
+.portal-wrap{ display:flex; align-items:center; justify-content:center; gap:1rem; }
+.rune{ font-size:2.5rem; color:rgba(147,51,234,0.18); }
+.contact-form{ width:420px; display:flex; flex-direction:column; gap:0.75rem; }
+.contact-form input, .contact-form textarea{ background:transparent; border:1px solid rgba(255,255,255,0.06); padding:0.75rem; border-radius:0.75rem; color:#f2eefe; }
+.send-btn{ align-self:center; padding:0.8rem 1.5rem; }
+
+/* small screens tweaks */
+@media(max-width:900px){ .lore-grid{grid-template-columns:1fr;} .gallery-grid{grid-template-columns:repeat(2,1fr);} .timeline-wrap{padding:0 1rem;} }

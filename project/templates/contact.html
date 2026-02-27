@@ -1,37 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Contact</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-</head>
-<body style="background: #000;">
-
-<!-- NAV -->
-<nav>
-    <div class="logo">OBSIDIAN</div>
-    <div>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-    </div>
-</nav>
-
-<!-- FORMULAIRE CENTRÉ -->
-<div style="display:flex; justify-content:center; align-items:center; min-height:100vh; padding-top:4rem;">
-    <div style="background: linear-gradient(to bottom right, #1e0a38, #000000); padding:3rem; border-radius:2rem; border:1px solid rgba(147,51,234,0.3); width:400px; box-shadow:0 15px 35px rgba(0,0,0,0.5); text-align:center;">
-        <h2 style="color:#9333ea; font-size:2.5rem;">Contact Us</h2>
-        <p style="color:#c4c4c4; margin-top:0.5rem;">Send a message and step into the magical realms of Obsidian.</p>
-
-        <form style="margin-top:2rem; display:flex; flex-direction:column; gap:1rem;" onsubmit="event.preventDefault(); alert('Message sent! A magical raven flies with your message 🦉✨');">
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <textarea placeholder="Message" style="height:6rem;"></textarea>
-            <button type="submit">Send</button>
+{% extends 'base.html' %}
+{% block content %}
+<section class="section contact-portal">
+    <h1>Enchanted Correspondence</h1>
+    <p class="lead">Send a message through the portal — the keepers will receive it.</p>
+    <div class="portal-wrap">
+        <div class="rune rune-left">ᚠ</div>
+        <form method="post" action="/contact" class="contact-form card">
+            <input name="name" placeholder="Your Name" required />
+            <input name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="glow send-btn">Send Through Portal</button>
         </form>
+        <div class="rune rune-right">ᛟ</div>
     </div>
-</div>
-
-</body>
-</html>
+    <div id="send-confirm" class="modal">
+        <div class="modal-content">
+            <p>Your message has passed the wards. A keeper will reply in due time.</p>
+            <div class="close-btn" onclick="closeModal('send-confirm')">Close</div>
+        </div>
+    </div>
+</section>
+{% endblock %}

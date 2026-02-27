@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section prophecy-hero">
+  <h1>The Fate Chamber</h1>
+  <p class="lead">Gaze into the crystal and listen — the world will speak a line of fate.</p>
+  <div class="crystal-wrap">
+    <div id="crystal" class="crystal"></div>
+    <div class="card prophecy-card">
+      <p id="fate-line">The crystal hums softly.</p>
+      <div class="prophecy-actions">
+        <button id="gen-prophecy" class="glow">Weave Prophecy</button>
+        <button id="take-quiz" class="ghost">Fate Quiz</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Fate Alignment</h2>
+  <p class="lead">Your choices shape an alignment displayed after the quiz.</p>
+  <div id="fate-result" class="card hidden"></div>
+</section>
+
+{% endblock %}

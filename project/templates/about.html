@@ -1,3 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section lore-hero">
+  <h1>About the Archive</h1>
+  <p class="lead">Obsidian remembers. The world was first named when light and hush agreed to keep each other's secrets.</p>
+</section>
+
+<section class="section lore-grid">
+  <div class="lore-card">
+    <h3>Origin</h3>
+    <p>When the first seam of night tore, the elders wove a mantle of memory; it became the world's hard heart.</p>
+  </div>
+  <div class="lore-card">
+    <h3>Magic</h3>
+    <p>Magic is measured in exchange: every miracle demands a shadow. Practitioners call this the Counterbalance.</p>
+  </div>
+  <div class="lore-card">
+    <h3>Mythos</h3>
+    <p>The Moon-Choir sang of vows; their verses folded into the lairs of kings and the seams of maps.</p>
+  </div>
+</section>
+
+<section class="section timeline">
+  <h2>Timeline</h2>
+  <div class="timeline-wrap">
+    <div class="timeline-item" data-year="-120">The Sundering — Old covenants broke.</div>
+    <div class="timeline-item" data-year="30">Founding of Dawnspire.</div>
+    <div class="timeline-item" data-year="212">The Whisper Pact.
+      <div class="secret">A secret tucked behind the pact: a prince did not die by sword but by a forgotten oath.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section manuscript">
+  <h2>Hidden Truths</h2>
+  <div class="manuscript card">
+    <p class="old">Touch the glyphs to reveal things unspoken. Stories here are written in the slow ink of centuries.</p>
+    <button class="glow reveal-secret">Reveal a Secret</button>
+  </div>
+</section>
+
+{% endblock %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,16 +50,9 @@
 </head>
 <body>
 
-<nav>
-    <div class="logo">OBSIDIAN</div>
-    <div>
-        <a href="/">Home</a>
-        <a href="#heroes">Heroes</a>
-        <a href="#realms">Realms</a>
-        <a href="#magic">Magic</a>
-        <a href="/contact">Contact</a>
-    </div>
-</nav>
+
+{% include 'nav.html' %}
+
 
 <section id="heroes" class="section">
     <h1>Meet the Heroes</h1>
@@ -119,6 +154,59 @@
 </div>
 
 <a href="/" class="glow" style="margin-top:2rem; display:block; text-align:center;">← Back to Home</a>
+
+<section id="timeline" class="section">
+  <h2>Legendary Timeline</h2>
+  <p>Click on a year to reveal a legendary event:</p>
+  <div class="flex-wrap">
+    <div class="card" onclick="openModal('event1')">Year 1024</div>
+    <div class="card" onclick="openModal('event2')">Year 1101</div>
+    <div class="card" onclick="openModal('event3')">Year 1150</div>
+  </div>
+</section>
+
+<div id="event1" class="modal">
+  <div class="modal-content">
+    <p>The first magical council was formed in Whispering Woods.</p>
+    <div class="close-btn" onclick="closeModal('event1')">Close</div>
+  </div>
+</div>
+<div id="event2" class="modal">
+  <div class="modal-content">
+    <p>Elara discovered the Wand of Shadows and unlocked ancient spells.</p>
+    <div class="close-btn" onclick="closeModal('event2')">Close</div>
+  </div>
+</div>
+<div id="event3" class="modal">
+  <div class="modal-content">
+    <p>Kael and Lyra thwarted a coup in Dawnspire Castle, saving the realms.</p>
+    <div class="close-btn" onclick="closeModal('event3')">Close</div>
+  </div>
+</div>
+
+<section id="carousel" class="section">
+  <h2>Magic & Heroes Showcase</h2>
+  <div class="flex-wrap">
+    <div class="card">Elara, Dawn Mage</div>
+    <div class="card">Kael, Shadow Warrior</div>
+    <div class="card">Lyra, Sky Thief</div>
+    <div class="card">Cloak of Whispers</div>
+    <div class="card">Amulet of Fate</div>
+  </div>
+</section>
+
+<section id="books" class="section" style="background: linear-gradient(to bottom, #000000, #1e0a38);">
+  <h2>Book Inspirations</h2>
+  <div class="flex-wrap">
+    <div class="card" title="Harry Potter: Magic, friendship, adventure.">Harry Potter</div>
+    <div class="card" title="Throne of Glass: Assassins, courage, destiny.">Throne of Glass</div>
+    <div class="card" title="ACOTAR: Courts, magic, intrigue.">ACOTAR</div>
+    <div class="card" title="Crescent City: Mystery, power, hidden realms.">Crescent City</div>
+    <div class="card" title="Caraval: Games, illusions, secrets.">Caraval</div>
+    <div class="card" title="Fourth Wing: Dragons, flight, rebellion.">Fourth Wing</div>
+    <div class="card" title="Once Upon a Broken Heart: Love, cunning, destiny.">Once Upon a Broken Heart</div>
+  </div>
+</section>
 
 </body>
 </html>

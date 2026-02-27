@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section">
+  <h1>Realm Explorer</h1>
+  <p class="lead">Select a realm to learn its voice, rulers, and dangers.</p>
+  <div class="flex-wrap realms-list">
+    <div class="card realm-card" data-title="Dawnspire Castle" data-desc="A citadel of oaths bathed in amber light." data-rulers="High House Lys" data-danger="Sun-tide storms" data-magic="Lightbinding">Dawnspire Castle</div>
+    <div class="card realm-card" data-title="Whispering Woods" data-desc="Forests that remember names and return them as prophecies." data-rulers="Council of Roots" data-danger="Memory-sink" data-magic="Root-song">Whispering Woods</div>
+    <div class="card realm-card" data-title="Shadow Peaks" data-desc="Stone and frost where shadow-things learn to speak." data-rulers="Warden of Clefts" data-danger="Falling night" data-magic="Stone-shape">Shadow Peaks</div>
+  </div>
+
+  <div id="realm-modal" class="modal">
+    <div class="modal-content">
+      <h3 id="realm-title"></h3>
+      <p id="realm-desc"></p>
+      <ul id="realm-meta"></ul>
+      <div class="close-btn" onclick="closeModal('realm-modal')">Close</div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,120 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Obsidian Fantasy</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-</head>
-<body>
-
-<nav>
-{% include 'nav.html' %}
-</nav>
-
-<section id="home" class="section" style="background: linear-gradient(to bottom, #000000, #1e0a38, #000000);">
-    <h1>Welcome to Obsidian</h1>
-    <p>Step into a world inspired by Harry Potter, Throne of Glass, ACOTAR, Crescent City, and Caraval.  
-    Magic, mystery, and unexpected adventures await!</p>
-    <a href="#story" class="glow">Begin Your Journey</a>
-</section>
-
-<section id="story" class="section">
-    <h2>The Tale</h2>
-    <p>From hidden wizarding schools to shadowy kingdoms, Obsidian echoes the worlds you love.  
-    Click on <span class="card" onclick="openModal('modalStory')">this scroll</span> to reveal a secret prophecy.</p>
-</section>
-
-<div id="modalStory" class="modal">
-    <div class="modal-content">
-        <p>"A shadow rises where courage sleeps; heroes will awaken when the stars align."</p>
-        <div class="close-btn" onclick="closeModal('modalStory')">Close</div>
+{% extends 'base.html' %}
+{% block content %}
+<header id="home-hero" class="hero cinematic">
+  <div id="butterfly-wrap" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <h1 class="hero-title">Obsidian — The Living Archive</h1>
+    <p class="hero-sub hero-sub-anim">Between black glass and starlit dust, a world keeps its vows.</p>
+    <div class="hero-actions">
+      <a class="portal glow" href="{{ url_for('main.prophecy') }}">Enter the Realm</a>
+      <a class="ghost" href="#featured-realms">Featured Realms</a>
     </div>
-</div>
+  </div>
+  <div id="scroll-indicator" class="scroll-indicator"></div>
+</header>
 
-<section id="heroes" class="section" style="background: linear-gradient(to right, #1e0a38, #000000, #1e0a38);">
-    <h2>Meet the Heroes</h2>
-    <div class="flex-wrap">
-        <div class="card" onclick="openModal('heroElara')">Elara, Dawn Mage</div>
-        <div class="card" onclick="openModal('heroKael')">Kael, Shadow Warrior</div>
-        <div class="card" onclick="openModal('heroLyra')">Lyra, Sky Thief</div>
-    </div>
-</section>
-
-<div id="heroElara" class="modal">
-    <div class="modal-content">
-        <p>Elara harnesses the ancient light to fight dark forces, inspired by Celaena Sardothien and ACOTAR magic users.</p>
-        <div class="close-btn" onclick="closeModal('heroElara')">Close</div>
-    </div>
-</div>
-<div id="heroKael" class="modal">
-    <div class="modal-content">
-        <p>Kael moves in shadows, cunning and daring. His path mirrors the thrill of Caraval’s games and Fourth Wing’s aerial battles.</p>
-        <div class="close-btn" onclick="closeModal('heroKael')">Close</div>
-    </div>
-</div>
-<div id="heroLyra" class="modal">
-    <div class="modal-content">
-        <p>Lyra is swift, elusive, and unpredictable. She embodies the spirit of Crescent City’s rogue powers and secretive legends.</p>
-        <div class="close-btn" onclick="closeModal('heroLyra')">Close</div>
-    </div>
-</div>
-
-<section id="artifacts" class="section">
-    <h2>Magic Artifacts</h2>
-    <div class="flex-wrap">
-        <div class="card" onclick="openModal('artifact1')">Wand of Shadows</div>
-        <div class="card" onclick="openModal('artifact2')">Cloak of Whispers</div>
-        <div class="card" onclick="openModal('artifact3')">Amulet of Fate</div>
-    </div>
-</section>
-
-<div id="artifact1" class="modal">
-    <div class="modal-content">
-        <p>Forged in the enchanted forest, the Wand of Shadows channels unseen magic to its wielder.</p>
-        <div class="close-btn" onclick="closeModal('artifact1')">Close</div>
-    </div>
-</div>
-<div id="artifact2" class="modal">
-    <div class="modal-content">
-        <p>The Cloak of Whispers grants invisibility and subtle influence, reminiscent of magical heists in Caraval.</p>
-        <div class="close-btn" onclick="closeModal('artifact2')">Close</div>
-    </div>
-</div>
-<div id="artifact3" class="modal">
-    <div class="modal-content">
-        <p>Amulet of Fate reveals destiny threads, connecting heroes and realms as in ACOTAR and Fourth Wing.</p>
-        <div class="close-btn" onclick="closeModal('artifact3')">Close</div>
-    </div>
-</div>
-
-<section id="prophecy" class="section">
-  <h2>Daily Prophecy</h2>
-  <p id="prophecy-text">“A hero will rise where darkness gathers.”</p>
-</section>
-
-<script>
-const prophecies = [
-  "A hero will rise where darkness gathers.",
-  "Shadows stir in the East, be ready.",
-  "Magic awakens those who believe.",
-  "An ancient artifact will find its master today.",
-  "The stars whisper secrets of the forgotten realms."
-];
-
-document.getElementById('prophecy-text').innerText =
-  prophecies[Math.floor(Math.random() * prophecies.length)];
-</script>
-
-<section id="quiz" class="section">
-  <h2>Discover Your Realm</h2>
-  <p>Click a button to see which fantasy realm matches your spirit:</p>
+<section id="featured-realms" class="section">
+  <h2>Featured Realms</h2>
   <div class="flex-wrap">
-    <button onclick="alert('You belong to the Shadow Peaks: cunning and brave!')">Shadow Peaks</button>
-    <button onclick="alert('You belong to Whispering Woods: wise and mysterious!')">Whispering Woods</button>
-    <button onclick="alert('You belong to Dawnspire Castle: noble and heroic!')">Dawnspire Castle</button>
+    <div class="card realm-preview" data-realm="Dawnspire Castle">Dawnspire<br><small>Light & Oath</small></div>
+    <div class="card realm-preview" data-realm="Whispering Woods">Whispering Woods<br><small>Memory & Roots</small></div>
+    <div class="card realm-preview" data-realm="Shadow Peaks">Shadow Peaks<br><small>Storm & Stone</small></div>
   </div>
 </section>
 
-</body>
-</html>
+<section id="prophecy-preview" class="section dark">
+  <h2>Prophecy Preview</h2>
+  <div class="prophecy-widget card">
+    <p id="prophecy-blurb">The crystal hums. A name waits in the dark.</p>
+    <button id="open-prophecy" class="glow">Reveal Fate</button>
+
+  </section>
+
+  <!-- Portal CTA anchor to contact page -->
+  <section id="portal" class="section portal-section">
+    <h2>Step Through the Portal</h2>
+    <p>When you're ready, activate the portal to speak with the keepers.</p>
+    <a href="{{ url_for('contact.contact') }}" class="glow portal large">Open Enchanted Portal</a>
+  </section>
+
+  {% endblock %}
